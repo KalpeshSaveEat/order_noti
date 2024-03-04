@@ -24,11 +24,11 @@ const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
     origin: process.env.FRONTEND_URL,
-    // methods: ["GET", "POST"],
-    // transports: ["websocket", "polling"],
-    // credentials: true,
+    methods: ["GET", "POST"],
+    transports: ["websocket", "polling"],
+    credentials: true,
   },
-  // allowEIO3: true,
+  allowEIO3: true,
 })
 
 //socket connection
