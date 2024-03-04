@@ -13,7 +13,7 @@ function App() {
   }
 
   React.useEffect(() => {
-    const room = window.prompt("enter tectr")
+    const room = window.prompt("enter room name")
 
     if (room !== null) {
       // join room
@@ -25,7 +25,7 @@ function App() {
       addNotification({
         title: `New Order Receive!`,
         message: `order Number is  ${order}`,
-        duration: 7000,
+        duration: 2000,
         native: true,
       })
     })

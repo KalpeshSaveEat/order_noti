@@ -1,10 +1,12 @@
 const express = require("express")
 const app = express()
+const dotenv = require("dotenv")
 const cors = require("cors")
 const PORT = process.env.PORT || 8000
 
 //cors policy
 app.use(cors())
+dotenv.config()
 //JSON
 app.use(express.json())
 
@@ -16,17 +18,17 @@ app.get("/", (req, res) => {
 const server = app.listen(PORT, () => {
   console.log(`listening on ${PORT}`)
 })
-
+console.log(process.env.FRONTEND_URL)
 //socket io config
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
-    transports: ["websocket", "polling"],
-    credentials: true,
+    origin: process.env.FRONTEND_URL,
+    // methods: ["GET", "POST"],
+    // transports: ["websocket", "polling"],
+    // credentials: true,
   },
-  allowEIO3: true,
+  // allowEIO3: true,
 })
 
 //socket connection
