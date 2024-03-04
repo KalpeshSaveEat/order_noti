@@ -5,6 +5,8 @@ const PORT = process.env.PORT || 8000
 
 //cors policy
 app.use(cors())
+//JSON
+app.use(express.json())
 
 //simple main route
 app.get("/", (req, res) => {
@@ -18,9 +20,8 @@ const server = app.listen(PORT, () => {
 //socket io config
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
-
   cors: {
-    origin: process.env.FRONTEND_URL,
+    origin: "*",
     methods: ["GET", "POST"],
   },
 })
