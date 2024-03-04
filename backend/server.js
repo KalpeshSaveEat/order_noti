@@ -1,13 +1,14 @@
 const express = require("express")
 const app = express()
+const PORT = process.env.PORT || 5000
 
 //simple main route
 app.get("/", (req, res) => {
   res.send("<h1>Hello wskdgvorld</h1>")
 })
 
-const server = app.listen(8000, () => {
-  console.log("listening on 8000")
+const server = app.listen(PORT, () => {
+  console.log(`listening on ${PORT}`)
 })
 
 //socket io config
