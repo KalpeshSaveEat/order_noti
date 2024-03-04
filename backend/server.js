@@ -1,8 +1,7 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
-
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8000
 
 //cors policy
 app.use(cors())
@@ -20,7 +19,7 @@ const server = app.listen(PORT, () => {
 const io = require("socket.io")(server, {
   pingTimeout: 60000,
   cors: {
-    origin: "https://order-noti.vercel.app",
+    origin: process.env.FRONTEND_URL,
   },
 })
 
